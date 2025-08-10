@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 
 const Page = async () => {
   const session = await auth();
-  if (session) redirect("/");
+  if (session) redirect("/blinky");
 
   return (
     <div className="w-full max-w-sm mx-auto space-y-6">
