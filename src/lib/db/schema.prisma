@@ -21,6 +21,9 @@ model User {
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+
+    // Model ShortLink
+    ShortLink ShortLink[]
 }
 
 model Account {
@@ -78,4 +81,16 @@ model Authenticator {
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
     @@id([userId, credentialID])
+}
+
+// Model ShortLink
+model ShortLink {
+    id          String  @id @default(cuid())
+    short       String  @unique
+    originalUrl String
+    userId      String?
+    user        User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }

@@ -7,7 +7,7 @@ const BlinkyPage = async () => {
   if (!session) redirect("/");
 
   return (
-    <>
+    <div className="h-screen flex flex-col justify-center items-center">
       <div className="bg-gray-100 rounded-lg p-4 text-center mb-6">
         <p className="text-gray-600">Signed in as:</p>
         <p className="font-medium">{session.user?.email}</p>
@@ -15,7 +15,7 @@ const BlinkyPage = async () => {
       </div>
 
       <SignOut />
-    </>
+    </div>
   );
 };
 
