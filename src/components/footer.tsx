@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="group w-full text-sm animate-in fade-in-25 fixed bottom-0 mt-4 py-4">
+    <footer className="w-full text-sm animate-in fade-in-25 bottom-0 ">
       <div className="max-w-6xl mx-auto px-6 py-8">
         <div className="flex justify-center">
           {/* Project attribution */}
