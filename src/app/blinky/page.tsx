@@ -25,19 +25,8 @@ const BlinkyPage = async () => {
   return (
     <div className="min-h-screen bg-gradient-to-br pt-32 px-6 sm:px-12 xl:px-32 2xl:px-72">
       <div className="max-w-6xl mx-auto space-y-8">
-        {/* Header */}
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-4xl font-bold text-white mb-2">
-              Welcome back, {session.user?.name || session.user?.email}! 👋
-            </h1>
-            <p className="text-gray-300">Create and manage your short links</p>
-          </div>
-          <SignOut />
-        </div>
-
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
             <h3 className="text-gray-300 text-sm font-medium">Total Links</h3>
             <p className="text-3xl font-bold text-white mt-2">
@@ -49,10 +38,6 @@ const BlinkyPage = async () => {
             <p className="text-3xl font-bold text-green-400 mt-2">
               {shortLinks.length}
             </p>
-          </div>
-          <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-            <h3 className="text-gray-300 text-sm font-medium">Total Clicks</h3>
-            <p className="text-3xl font-bold text-blue-400 mt-2">0</p>
           </div>
         </div>
 

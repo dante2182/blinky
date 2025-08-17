@@ -1,8 +1,13 @@
 import { GithubLogo, LinkedinLogo, XLogo } from "@/components/ui/icons/logos";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { auth } from "@/lib/auth";
+import { SignOut } from "@/components/sign-out";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session = await auth();
+
   return (
     <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-4 backdrop-blur-3xl bg-black/30 z-50 lg:px-32 md:px-10 xl:px-72">
       <div className="flex items-center space-x-2">
@@ -18,6 +23,7 @@ export default function Navbar() {
           Blinky
         </Link>
       </div>
+
       <div className="text-white flex space-x-2 items-center">
         <a
           href="https://github.com/samfint"
@@ -37,9 +43,19 @@ export default function Navbar() {
         >
           <XLogo />
         </a>
-        <Link href="/sign-in" className="">
-          <Button className="cursor-pointer">Get Started</Button>
-        </Link>
+
+        {session ? (
+          <div className="flex items-center space-x-3">
+            <Avatar>
+              <AvatarImage src={session.user?.image || ""} />
+            </Avatar>
+            <SignOut />
+          </div>
+        ) : (
+          <Link href="/sign-in">
+            <Button className="cursor-pointer">Get Started</Button>
+          </Link>
+        )}
       </div>
     </nav>
   );
