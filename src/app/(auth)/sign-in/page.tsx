@@ -1,6 +1,5 @@
-// src/app/(auth)/sign-in/page.tsx
-import { GithubSignIn } from "@/components/github-sign-in";
-import { GoogleSignIn } from "@/components/google-sign-in";
+import { GithubSignIn } from "@/components/auth/github-sign-in";
+import { GoogleSignIn } from "@/components/auth/google-sign-in";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { redirect } from "next/navigation";

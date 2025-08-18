@@ -1,20 +1,23 @@
-import { GithubLogo, LinkedinLogo, XLogo } from "@/components/ui/icons/logos";
-import { Button } from "./ui/button";
+import { GithubLogo, LinkedinLogo, XLogo } from "@/components/icons/logos";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
-import { SignOut } from "@/components/sign-out";
+import { SignOut } from "@/components/auth/sign-out";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 
-export default async function Navbar() {
+export default async function Header() {
   const session = await auth();
 
   return (
     <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-4 backdrop-blur-3xl bg-black/30 z-50 lg:px-32 md:px-10 xl:px-72">
       <div className="flex items-center space-x-2">
-        <img
-          src="logo.png"
-          alt=""
-          className="h-8 w-8 rounded-sm transition hover:scale-110 duration-500"
+        <Image
+          src="/logo.png"
+          alt="logo.png"
+          className="rounded-sm transition hover:scale-110 duration-500"
+          width={40}
+          height={40}
         />
         <Link
           href="/"
@@ -53,7 +56,9 @@ export default async function Navbar() {
           </div>
         ) : (
           <Link href="/sign-in">
-            <Button className="cursor-pointer">Get Started</Button>
+            <Button className="cursor-pointer" variant="secondary">
+              Get Started
+            </Button>
           </Link>
         )}
       </div>

@@ -1,22 +1,21 @@
-// src/components/google-sign-in.tsx
 import { signIn } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
-import { GoogleLogo } from "./ui/icons/logos";
+import { GithubLogo } from "@/components/icons/logos";
 
-const GoogleSignIn = () => {
+const GithubSignIn = () => {
   return (
     <form
       action={async () => {
         "use server";
-        await signIn("google");
+        await signIn("github");
       }}
     >
       <Button className="w-full">
-        <GoogleLogo />
-        Continue with Google
+        <GithubLogo />
+        Continue with Github
       </Button>
     </form>
   );
 };
 
-export { GoogleSignIn };
+export { GithubSignIn };

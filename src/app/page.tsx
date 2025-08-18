@@ -1,18 +1,17 @@
-import { GithubLogo, LinkLogo } from "@/components/ui/icons/logos";
+import { GithubLogo, LinkLogo } from "@/components/icons/logos";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
     <section className="flex items-center justify-center min-h-screen text-center px-6 max-w-4xl mx-auto">
       <div>
-        {/* Logo Animation */}
         <div className="mb-8 flex justify-center">
           <div className="animate-pulse">
-            <img src={"/logo.png"} className="w-24 h-24" />
+            <Image src={"/logo.png"} alt="/logo.png" width={150} height={150} />
           </div>
         </div>
 
-        {/* Main Heading */}
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
           Enhance Your
           <span className="block bg-gradient-to-r from-gray-300 to-gray-500 bg-clip-text text-transparent">
@@ -20,13 +19,11 @@ export default function HomePage() {
           </span>
         </h1>
 
-        {/* Subtitle */}
         <p className="text-xl md:text-2xl text-gray-300 mb-4 leading-relaxed max-w-3xl mx-auto">
           Blinky is an open-source platform that allows you to create, manage,
           and share short links with ease.
         </p>
 
-        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link href="/sign-in">
             <button className="group px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 text-white rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-gray-500/25 flex items-center space-x-2 min-w-[200px] justify-center">
