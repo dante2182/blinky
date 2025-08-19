@@ -2,6 +2,7 @@ import { auth } from "@/lib/auth";
 import db from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { redirectIfBrowserNavigation } from "@/lib/http";
 
 const updateShortLinkSchema = z.object({
   originalUrl: z.string().url("Please enter a valid URL").optional(),
@@ -14,6 +15,9 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const redirect = redirectIfBrowserNavigation(request, "/blinky");
+    if (redirect) return redirect;
+
     const session = await auth();
     if (!session?.user?.id) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

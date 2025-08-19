@@ -2,6 +2,7 @@ import { auth } from "@/lib/auth";
 import db from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { redirectIfBrowserNavigation } from "@/lib/http";
 
 // Schema de validación
 const createShortLinkSchema = z.object({
@@ -10,8 +11,11 @@ const createShortLinkSchema = z.object({
 });
 
 // GET - Obtener todos los ShortLinks del usuario
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const redirect = redirectIfBrowserNavigation(request, "/blinky");
+    if (redirect) return redirect;
+
     const session = await auth();
     if (!session?.user?.id) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
