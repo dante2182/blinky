@@ -49,7 +49,7 @@ next-env.d.ts
 
 # prisma & dump files
 */lib/db/data
-*/lib/db/migrations
+/lib/db/migrations/
 dev.db
 dev.db-journal
 mysql2sqlite

@@ -91,7 +91,11 @@ const BlinkyPage = async () => {
 
         {/* Short Links Table */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          <CardLinks shortLinks={shortLinks} />
+          <CardLinks shortLinks={shortLinks.map(link => ({
+            ...link,
+            createdAt: link.createdAt.toISOString(),
+            updatedAt: link.updatedAt.toISOString()
+          }))} />
         </div>
       </div>
     </div>
