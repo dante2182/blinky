@@ -144,8 +144,6 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 ### Utilities
 
 - **[Zod](https://zod.dev/)** - TypeScript-first schema validation
-- **[bcrypt](https://github.com/kelektiv/node.bcrypt.js)** - Password hashing
-- **[uuid](https://github.com/uuidjs/uuid)** - UUID generation
 - **[clsx](https://github.com/lukeed/clsx)** - Conditional className utility
 
 ## 🤝 Contributing

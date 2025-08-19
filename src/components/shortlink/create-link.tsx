@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { CreateLogo, LoadingLogo } from "../icons/logos";
+import { CreateLogo, LoadingLogo, RocketLogo } from "../icons/logos";
 
 export default function CreateLink() {
   const [originalUrl, setOriginalUrl] = useState("");
@@ -149,7 +149,10 @@ export default function CreateLink() {
                   Creating...
                 </>
               ) : (
-                "Create"
+                <>
+                  <RocketLogo />
+                  Create Link
+                </>
               )}
             </Button>
           </DialogFooter>

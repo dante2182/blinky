@@ -23,10 +23,10 @@ function ButtonDelete({ id, onDelete, loading }: ButtonDeleteProps) {
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button
-          variant="destructive"
+          variant="link"
           size="sm"
           disabled={loading}
-          className="text-gray-400 text-xs"
+          className="text-muted-foreground hover:text-red-500"
         >
           {loading ? <LoadingLogo /> : <TrashLogo />}
         </Button>

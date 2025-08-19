@@ -96,23 +96,6 @@ export const CreateLogo = () => {
 export const CopyLogo = () => {
   return (
     <svg
-      className="w-4 h-4 text-green-400"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M5 13l4 4L19 7"
-      />
-    </svg>
-  );
-};
-export const CheckLogo = () => {
-  return (
-    <svg
       className="w-4 h-4"
       fill="none"
       viewBox="0 0 24 24"
@@ -123,6 +106,23 @@ export const CheckLogo = () => {
         strokeLinejoin="round"
         strokeWidth={2}
         d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+      />
+    </svg>
+  );
+};
+export const CheckLogo = () => {
+  return (
+    <svg
+      className="w-4 h-4 text-green-400"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M5 13l4 4L19 7"
       />
     </svg>
   );
@@ -223,6 +223,87 @@ export const ExternalLink = () => {
       <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
       <path d="m21 3-9 9" />
       <path d="M15 3h6v6" />
+    </svg>
+  );
+};
+export const RocketLogo = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-rocket-icon lucide-rocket"
+    >
+      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+      <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+      <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+    </svg>
+  );
+};
+export const ActiveLogo = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-activity-icon lucide-activity"
+    >
+      <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" />
+    </svg>
+  );
+};
+export const UrlLogo = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-link2-icon lucide-link-2"
+    >
+      <path d="M9 17H7A5 5 0 0 1 7 7h2" />
+      <path d="M15 7h2a5 5 0 1 1 0 10h-2" />
+      <line x1="8" x2="16" y1="12" y2="12" />
+    </svg>
+  );
+};
+export const ClickLogo = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-mouse-pointer-click-icon lucide-mouse-pointer-click"
+    >
+      <path d="M14 4.1 12 6" />
+      <path d="m5.1 8-2.9-.8" />
+      <path d="m6 12-1.9 2" />
+      <path d="M7.2 2.2 8 5.1" />
+      <path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z" />
     </svg>
   );
 };
