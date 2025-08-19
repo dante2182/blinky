@@ -1,6 +1,5 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { ShortLinksTable } from "@/components/shortlink/shortlinks-table";
 import db from "@/lib/db";
 import CreateLink from "@/components/shortlink/create-link";
 import { CardLinks } from "@/components/shortlink/card-link";
@@ -91,7 +90,7 @@ const BlinkyPage = async () => {
         </div>
 
         {/* Short Links Table */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           <CardLinks shortLinks={shortLinks} />
         </div>
       </div>
