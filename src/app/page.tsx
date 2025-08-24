@@ -32,7 +32,7 @@ export default function HomePage() {
             </button>
           </Link>
 
-          <Link href="https://github.com/samfint/blinky">
+          <Link href="https://github.com/dante2182/blinky">
             <button className="group px-8 py-4 bg-transparent hover:bg-gray-800/50 text-white rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-gray-600 hover:border-gray-500 flex items-center space-x-2 min-w-[200px] justify-center">
               <GithubLogo />
               <span>Star on GitHub</span>
