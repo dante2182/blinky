@@ -25,65 +25,11 @@ const BlinkyPage = async () => {
   return (
     <div className="min-h-screen bg-gradient-to-br pt-28 px-6 sm:px-12 xl:px-32 2xl:px-72">
       <div className="max-w-6xl mx-auto space-y-8">
-        {/* Stats */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="border border-sky-600 p-6 rounded-lg flex items-center justify-between transition-all duration-200 hover:scale-[1.02]">
-            <div>
-              <h1 className="text-2xl font-bold text-white">Total Links</h1>
-              <h1 className="text-2xl font-bold text-white">
-                {shortLinks.length}
-              </h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="text-white w-12 h-12 rounded-lg flex items-center justify-center bg-[#3393e2]">
-                <UrlLogo />
-              </div>
-            </div>
-          </div>
-          <div className="border border-emerald-600 p-6 rounded-lg flex items-center justify-between transition-all duration-200 hover:scale-[1.02]">
-            <div>
-              <h1 className="text-2xl font-bold text-white">Active Links</h1>
-              <h1 className="text-2xl font-bold text-white">
-                {shortLinks.length}
-              </h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="text-white w-12 h-12 rounded-lg flex items-center justify-center bg-[#09656b]">
-                <ActiveLogo />
-              </div>
-            </div>
-          </div>
-          <div className="border border-yellow-600 p-6 rounded-lg flex items-center justify-between transition-all duration-200 hover:scale-[1.02]">
-            <div>
-              <h1 className="text-2xl font-bold text-white">Clicks</h1>
-              <h1 className="text-2xl font-bold text-white">
-                {shortLinks.length}
-              </h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="text-white w-12 h-12 rounded-lg flex items-center justify-center bg-yellow-600">
-                <ClickLogo />
-              </div>
-            </div>
-          </div>
-          <div className="border border-indigo-600 p-6 rounded-lg flex items-center justify-between transition-all duration-200 hover:scale-[1.02]">
-            <div>
-              <h1 className="text-2xl font-bold text-white">This Month</h1>
-              <h1 className="text-2xl font-bold text-white">
-                {shortLinks.length}
-              </h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="text-white w-12 h-12 rounded-lg flex items-center justify-center bg-indigo-600">
-                <ClickLogo />
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Create Short Link  */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-white ">Your Links</h2>
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-3xl font-bold text-neutral-100 tracking-tight">
+            Your Links
+          </h2>
           <div className="flex items-center space-x-4">
             <CreateLink />
           </div>
@@ -91,11 +37,13 @@ const BlinkyPage = async () => {
 
         {/* Short Links Table */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          <CardLinks shortLinks={shortLinks.map(link => ({
-            ...link,
-            createdAt: link.createdAt.toISOString(),
-            updatedAt: link.updatedAt.toISOString()
-          }))} />
+          <CardLinks
+            shortLinks={shortLinks.map((link) => ({
+              ...link,
+              createdAt: link.createdAt.toISOString(),
+              updatedAt: link.updatedAt.toISOString(),
+            }))}
+          />
         </div>
       </div>
     </div>

@@ -71,32 +71,33 @@ export const CardLinks: React.FC<CardLinkProps> = ({ shortLinks }) => {
       {shortLinks.map((link) => (
         <div
           key={link.id}
-          className="rounded-lg p-4 border border-gray-500 transition-all duration-400 hover:scale-[1.02]"
+          className="rounded-md p-3 border border-neutral-700 bg-neutral-900/50 hover:bg-neutral-800/50 transition-all duration-300"
         >
-          <div className="flex items-center justify-between mb-4">
-            <a
-              href={`/${link.short}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xl font-bold text-gray-200 flex items-center"
-            >
-              <span className="text-3xl font-semibold">/</span>
-              {link.short}
-            </a>
-            <div className="flex items-center">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <a
+                href={`/${link.short}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg font-medium text-neutral-200 hover:text-white transition-colors"
+              >
+                /{link.short}
+              </a>
+            </div>
+            <div className="flex items-center gap-1">
               <Button
-                variant="link"
+                variant="ghost"
                 size="sm"
                 onClick={() => handleCopy(link.short)}
-                className="text-muted-foreground hover:text-blue-500"
+                className="h-8 w-8 p-0 text-neutral-400"
               >
                 {copiedId === link.short ? <CheckLogo /> : <CopyLogo />}
               </Button>
               <Button
-                variant="link"
+                variant="ghost"
                 size="sm"
                 onClick={() => window.open(`/${link.short}`, "_blank")}
-                className="text-muted-foreground hover:text-blue-500"
+                className="h-8 w-8 p-0 text-neutral-400"
               >
                 <EyeLogo />
               </Button>
@@ -107,15 +108,11 @@ export const CardLinks: React.FC<CardLinkProps> = ({ shortLinks }) => {
               />
             </div>
           </div>
-          <div className="flex flex-col space-y-2 mt-4">
-            <div className="p-2 rounded-md flex items-center justify-between">
-              <p className="text-blue-500 hover:text-blue-400 cursor-pointer transition-colors">
-                {link.originalUrl}
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-end">
-            <span className="text-muted-foreground text-sm">
+          <p className="mt-2 block text-sm text-neutral-400 truncate transition-colors">
+            {link.originalUrl}
+          </p>
+          <div className="flex items-center justify-end">
+            <span className="text-xs text-neutral-500">
               {formatDate(link.createdAt)}
             </span>
           </div>

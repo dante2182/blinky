@@ -10,7 +10,7 @@ export default async function Header() {
   const session = await auth();
 
   return (
-    <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-4 backdrop-blur-3xl bg-black/30 z-50 lg:px-32 md:px-10 xl:px-72">
+    <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-4 backdrop-blur-3xl bg-neutral-900/80 z-50 lg:px-32 md:px-10 xl:px-72">
       <div className="flex items-center space-x-2">
         <Image
           src="/logo.png"
