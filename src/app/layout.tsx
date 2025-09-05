@@ -29,7 +29,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
         <div className="relative overflow-hidden min-h-screen">
           <div
             className="absolute top-0 z-[-2] h-full w-full bg-neutral-950

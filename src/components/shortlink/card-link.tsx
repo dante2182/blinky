@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CheckLogo, CopyLogo, EyeLogo } from "../icons/logos";
 import { ShortLink } from "@/types/shortlink.tipe";
 import { useRouter } from "next/navigation";
@@ -14,7 +14,13 @@ interface CardLinkProps {
 export const CardLinks: React.FC<CardLinkProps> = ({ shortLinks }) => {
   const [loadingId, setLoadingId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [origin, setOrigin] = useState<string>("");
   const router = useRouter();
+
+  // Establecer el origin solo en el cliente
+  useEffect(() => {
+    setOrigin(window.location.origin);
+  }, []);
 
   const handleDelete = async (id: string) => {
     setLoadingId(id);
@@ -38,7 +44,10 @@ export const CardLinks: React.FC<CardLinkProps> = ({ shortLinks }) => {
   };
 
   const handleCopy = async (shortCode: string) => {
-    const fullUrl = `${window.location.origin}/${shortCode}`;
+    // Solo proceder si origin está disponible (cliente)
+    if (!origin) return;
+
+    const fullUrl = `${origin}/${shortCode}`;
 
     try {
       await navigator.clipboard.writeText(fullUrl);
