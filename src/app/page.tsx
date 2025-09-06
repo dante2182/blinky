@@ -1,23 +1,10 @@
 import { GithubLogo, LinkLogo } from "@/components/icons/logos";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <section className="flex items-center justify-center min-h-screen text-center px-6 max-w-5xl mx-auto bg-gray-900/30 backdrop-blur-sm rounded-3xl shadow-2xl">
+    <section className="flex items-center justify-center min-h-screen text-center px-6 max-w-5xl mx-auto">
       <div className="py-12">
-        <div className="mb-12 flex justify-center">
-          <div className="animate-pulse hover:animate-none transition-all duration-500">
-            <Image
-              src={"/logo.png"}
-              alt="/logo.png"
-              width={180}
-              height={180}
-              className="drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-            />
-          </div>
-        </div>
-
         <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
           Enhance Your
           <span className="block bg-gradient-to-r from-blue-200 via-gray-200 to-purple-200 bg-clip-text text-transparent">

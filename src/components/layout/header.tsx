@@ -2,9 +2,9 @@ import { GithubLogo, LinkedinLogo, XLogo } from "@/components/icons/logos";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
-import { SignOut } from "@/components/auth/sign-out";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
+import DropMenu from "../auth/drop-menu";
 
 export default async function Header() {
   const session = await auth();
@@ -46,13 +46,18 @@ export default async function Header() {
         >
           <XLogo />
         </a>
-
         {session ? (
-          <div className="flex items-center space-x-3">
-            <Avatar>
-              <AvatarImage src={session.user?.image || ""} />
-            </Avatar>
-            <SignOut />
+          <div className="text-black flex items-center space-x-2">
+            <DropMenu
+              userData={{
+                name: session.user?.name,
+                email: session.user?.email,
+              }}
+            >
+              <Avatar className="cursor-pointer">
+                <AvatarImage src={session.user?.image || ""} />
+              </Avatar>
+            </DropMenu>
           </div>
         ) : (
           <Link href="/sign-in">
