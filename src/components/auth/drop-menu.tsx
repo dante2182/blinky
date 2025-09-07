@@ -54,8 +54,10 @@ export default function DropMenu({
           <DropdownMenuItem>Settings</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={handleSignOut}>
-          <span className="text-red-500">Log out</span>
+        <DropdownMenuItem onClick={handleSignOut} disabled={isLoading}>
+          <span className="text-red-500">
+            {isLoading ? "Cerrando Sesión..." : "Log out"}
+          </span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

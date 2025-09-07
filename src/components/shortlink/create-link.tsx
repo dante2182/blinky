@@ -16,6 +16,16 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CreateLogo, LoadingLogo, RocketLogo } from "../icons/logos";
 
+interface ValidationIssue {
+  message: string;
+}
+
+interface ApiError {
+  error?: string;
+  details?: {
+    issues: ValidationIssue[];
+  };
+}
 export default function CreateLink() {
   const [originalUrl, setOriginalUrl] = useState("");
   const [customShort, setCustomShort] = useState("");
@@ -54,7 +64,7 @@ export default function CreateLink() {
           );
         } else if (data.details?.issues) {
           const issues = data.details.issues
-            .map((issue: any) => issue.message)
+            .map((issue: ValidationIssue) => issue.message)
             .join(", ");
           throw new Error(`Error de validacion: ${issues}`);
         } else {
@@ -69,8 +79,12 @@ export default function CreateLink() {
         setIsOpen(false);
         router.refresh();
       }, 1500);
-    } catch (error: any) {
-      setError(error.message || "Error al crear el enlace corto");
+    } catch (error: unknown) {
+      setError(
+        error instanceof Error
+          ? error.message
+          : "Error al crear el enlace corto"
+      );
     } finally {
       setIsLoading(false);
     }
