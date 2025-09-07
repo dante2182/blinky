@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import db from "@/lib/db";
 import CreateLink from "@/components/shortlink/create-link";
 import { CardLinks } from "@/components/shortlink/card-link";
-import { ActiveLogo, ClickLogo, UrlLogo } from "@/components/icons/logos";
 
 const BlinkyPage = async () => {
   const session = await auth();

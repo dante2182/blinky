@@ -46,23 +46,31 @@ export default function CreateLink() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to create short link");
+        if (data.error === "URL already exists") {
+          throw new Error("Esta URL ya existe. Intenta con otra.");
+        } else if (data.error === "Custom short code already taken") {
+          throw new Error(
+            "Este codigo personalizado ya esta en uso. Intenta con otro."
+          );
+        } else if (data.details?.issues) {
+          const issues = data.details.issues
+            .map((issue: any) => issue.message)
+            .join(", ");
+          throw new Error(`Error de validacion: ${issues}`);
+        } else {
+          throw new Error(data.error || "Error al crear el enlace corto.");
+        }
       }
 
-      setSuccess("Short link created successfully!");
+      setSuccess("¡Enlace corto creado con éxito!");
       setOriginalUrl("");
       setCustomShort("");
-
-      // Refresh the page to show the new link
-      router.refresh();
-
-      // Close modal and clear success message after 2 seconds
       setTimeout(() => {
-        setSuccess("");
         setIsOpen(false);
-      }, 2000);
-    } catch (error) {
-      setError(error instanceof Error ? error.message : "An error occurred");
+        router.refresh();
+      }, 1500);
+    } catch (error: any) {
+      setError(error.message || "Error al crear el enlace corto");
     } finally {
       setIsLoading(false);
     }

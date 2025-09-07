@@ -3,6 +3,7 @@ import db from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { redirectIfBrowserNavigation } from "@/lib/http";
+import { randomBytes } from "crypto";
 
 // Schema de validación
 const createShortLinkSchema = z.object({
@@ -103,9 +104,13 @@ export async function POST(request: NextRequest) {
 function generateShortCode(length: number = 6): string {
   const chars =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const randomBytesBuffer = randomBytes(length);
   let result = "";
+
   for (let i = 0; i < length; i++) {
-    result += chars.charAt(Math.floor(Math.random() * chars.length));
+    const randomIndex = randomBytesBuffer[i] % chars.length;
+    result += chars.charAt(randomIndex);
   }
+
   return result;
 }

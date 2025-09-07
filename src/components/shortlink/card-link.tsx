@@ -6,6 +6,7 @@ import { ShortLink } from "@/types/shortlink.tipe";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import ButtonDelete from "./buttondelete";
+import dayjs from "dayjs";
 
 interface CardLinkProps {
   shortLinks: ShortLink[];
@@ -59,11 +60,7 @@ export const CardLinks: React.FC<CardLinkProps> = ({ shortLinks }) => {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
+    return dayjs(dateString).format("MMM D, YYYY");
   };
 
   return (
