@@ -68,7 +68,7 @@ export const CardLinks: React.FC<CardLinkProps> = ({ shortLinks }) => {
       {shortLinks.map((link) => (
         <div
           key={link.id}
-          className="rounded-md p-3 border border-neutral-700 bg-neutral-900/50 hover:bg-neutral-800/50 transition-all duration-300"
+          className="rounded-md p-3 border border-neutral-500 bg-card/80 hover:bg-card/50 transition-all duration-300"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -76,7 +76,7 @@ export const CardLinks: React.FC<CardLinkProps> = ({ shortLinks }) => {
                 href={`/${link.short}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg font-medium text-neutral-200 hover:text-white transition-colors"
+                className="text-lg font-medium text-card-foreground hover:text-foreground transition-colors"
               >
                 /{link.short}
               </a>
@@ -86,7 +86,7 @@ export const CardLinks: React.FC<CardLinkProps> = ({ shortLinks }) => {
                 variant="ghost"
                 size="sm"
                 onClick={() => handleCopy(link.short)}
-                className="h-8 w-8 p-0 text-neutral-400"
+                className="h-8 w-8 p-0 text-muted-foreground"
               >
                 {copiedId === link.short ? <CheckLogo /> : <CopyLogo />}
               </Button>
@@ -94,7 +94,7 @@ export const CardLinks: React.FC<CardLinkProps> = ({ shortLinks }) => {
                 variant="ghost"
                 size="sm"
                 onClick={() => window.open(`/${link.short}`, "_blank")}
-                className="h-8 w-8 p-0 text-neutral-400"
+                className="h-8 w-8 p-0 text-muted-foreground"
               >
                 <EyeLogo />
               </Button>
@@ -105,11 +105,11 @@ export const CardLinks: React.FC<CardLinkProps> = ({ shortLinks }) => {
               />
             </div>
           </div>
-          <p className="mt-2 block text-sm text-neutral-400 truncate transition-colors">
+          <p className="mt-2 block text-sm text-muted-foreground truncate transition-colors">
             {link.originalUrl}
           </p>
           <div className="flex items-center justify-end">
-            <span className="text-xs text-neutral-500">
+            <span className="text-xs text-muted-foreground/70">
               {formatDate(link.createdAt)}
             </span>
           </div>

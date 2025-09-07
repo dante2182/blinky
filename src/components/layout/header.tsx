@@ -4,12 +4,13 @@ import Link from "next/link";
 import { auth } from "@/lib/auth";
 import Image from "next/image";
 import UserAvatar from "../auth/user-avatar";
+import { ModeToggle } from "../modeToggle";
 
 export default async function Header() {
   const session = await auth();
 
   return (
-    <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-4 backdrop-blur-3xl bg-neutral-900/80 z-50 lg:px-32 md:px-10 xl:px-72">
+    <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-4 backdrop-blur-3xl z-50 lg:px-32 md:px-10 xl:px-72">
       <div className="flex items-center space-x-2">
         <Image
           src="/logo.png"
@@ -20,13 +21,13 @@ export default async function Header() {
         />
         <Link
           href="/"
-          className="text-white font-bold flex items-center space-x-3 transition-opacity hover:opacity-80 rtl:space-x-reverse"
+          className="font-bold flex items-center space-x-3 transition-opacity hover:opacity-80 rtl:space-x-reverse"
         >
           Blinky
         </Link>
       </div>
 
-      <div className="text-white flex space-x-2 items-center">
+      <div className="flex space-x-2 items-center">
         <a
           href="https://github.com/dante2182"
           className="inline-flex items-center space-x-3 justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-neutral-700 focus-visible:ring-neutral-500 hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 h-9 w-9"
@@ -46,7 +47,7 @@ export default async function Header() {
           <XLogo />
         </a>
         {session ? (
-          <div className="text-black flex items-center space-x-2">
+          <div className="flex items-center space-x-2">
             <UserAvatar
               userData={{
                 name: session.user?.name,
@@ -62,6 +63,7 @@ export default async function Header() {
             </Button>
           </Link>
         )}
+        <ModeToggle />
       </div>
     </nav>
   );

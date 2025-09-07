@@ -10,14 +10,12 @@ const Page = async () => {
 
   return (
     <div className="h-screen flex items-center justify-center">
-      <div className="w-full max-w-sm mx-auto space-y-6 border-4 bg-gray-100 py-8 px-6 rounded-3xl">
+      <div className="w-full max-w-sm mx-auto space-y-6 border-4 py-8 px-6 rounded-3xl">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-center mb-2">
             Welcome to Blinky
           </h1>
-          <p className="text-gray-600 text-sm">
-            Sign in to start creating your short links
-          </p>
+          <p className="text-sm">Sign in to start creating your short links</p>
         </div>
 
         <div className="space-y-3">
