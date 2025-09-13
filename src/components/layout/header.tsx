@@ -25,6 +25,12 @@ export default async function Header() {
         >
           Blinky
         </Link>
+
+        <div className="w-full max-w-sm animate-rotate-border rounded-lg bg-conic/[from_var(--border-angle)] from-80% via-neutral-950 dark:via-neutral-200 via-90% to-neutral-950 dark:to-neutral-100 to-100% p-px">
+          <div className="rounded-lg bg-gray-200 dark:bg-neutral-900 px-4 py-1 text-center text-xs">
+            <span className="font-bold">Beta</span>
+          </div>
+        </div>
       </div>
 
       <div className="flex space-x-2 items-center">
