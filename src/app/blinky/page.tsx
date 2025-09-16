@@ -22,10 +22,10 @@ const BlinkyPage = async () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br pt-28 px-6 sm:px-12 xl:px-32 2xl:px-72">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <div className="min-h-screen bg-gradient-to-br pt-28">
+      <div className="max-w-6xl mx-auto px-6 space-y-8">
         {/* Create Short Link  */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between">
           <h2 className="text-3xl font-bold tracking-tight">Your Links</h2>
           <div className="flex items-center space-x-4">
             <CreateLink />
